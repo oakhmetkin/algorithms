@@ -2,3 +2,4 @@
 
 ## sorting:
 - Merge sort
+- Quick sort (non-deterministic)
