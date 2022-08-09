@@ -1,27 +1,27 @@
 #include <iostream>
 #include "../common_methods/arrays_methods.h"
 
-void merge_sort(int* arr, int l, int r)
+void merge_sort(int* arr, int n)
 {
-    if (l >= r - 1) return;
+    if (n <= 1) return;
 
     // split
-    int mid = (l + r) / 2;
-    merge_sort(arr, l, mid);
-    merge_sort(arr, mid, r);
+    int mid = n / 2;
+    merge_sort(arr, mid);
+    merge_sort(arr + mid, n - mid);
 
     // merge
-    int* tmp = new int[r - l];
-    int lp = l, rp = mid, i = 0;
+    int* tmp = new int[n];
+    int lp = 0, rp = mid, i = 0;
     
-    while (lp < mid && rp < r)
+    while (lp < mid && rp < n)
         tmp[i++] = arr[lp] <= arr[rp] ? arr[lp++] : arr[rp++];
     
     while (lp < mid) tmp[i++] = arr[lp++];
-    while (rp < r  ) tmp[i++] = arr[rp++];
+    while (rp < n  ) tmp[i++] = arr[rp++];
     
-    for (size_t j = 0; j < r - l; j++)
-        arr[l + j] = tmp[j];
+    for (size_t j = 0; j < n; j++)
+        arr[j] = tmp[j];
     
     delete[] tmp;
 }
@@ -37,7 +37,7 @@ int main()
     std::cout << "array:  ";
     print_array(arr, n);
 
-    merge_sort(arr, 0, n);
+    merge_sort(arr, n);
     std::cout << "sorted: ";
     print_array(arr, n);
 
