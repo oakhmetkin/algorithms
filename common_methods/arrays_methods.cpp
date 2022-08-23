@@ -19,6 +19,17 @@ int* create_array(int n, bool fill_rnd_vals /*= false*/, int min /*= 0*/, int ma
     return arr;
 }
 
+// creates array and returns copy of arr
+int* copy_array(int* arr, int n)
+{
+    int* copy = new int[n];
+
+    for (size_t i = 0; i < n; i++)
+        copy[i] = arr[i];
+
+    return copy;    
+}
+
 // printes array to console
 void print_array(int* arr, int n)
 {
