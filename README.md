@@ -4,7 +4,7 @@
 - Merge sort
 - Quick sort (non-deterministic and deterministic)
 
-## haffman:
+## huffman:
 - min-heap (max-heap)
 - binary tree (node.py)
 - Huffman coding
